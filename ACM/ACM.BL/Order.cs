@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Acme.Common;
 
 namespace ACM.BL
 {
-	public class Order
+	public class Order : EntityBase, Iloggable
 	{
-		public Order (): this (0)
+		public Order() : this(0)
 		{
 		}
 		public Order(int orderId)
@@ -23,10 +24,14 @@ namespace ACM.BL
 		public List<OrderItem> OrderItems { get; set; }
 		public int ShippingAddressId { get; set; }
 
+		
+
+		public string Log() =>
+			$"{OrderId} : Date {this.OrderDate.Value.Date} Status: {this.EnityState.ToString()}";
 		public override string ToString() =>
 			$"{OrderDate.Value.Date}({OrderId})";
-		
-		public bool Validate()
+
+		public override bool Validate()
 		{
 			var isValid = true;
 
@@ -35,6 +40,6 @@ namespace ACM.BL
 			return isValid;
 		}
 
+	}	
 
-	}
 }

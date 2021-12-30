@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ACM.BL
 {
-	public class Product : EntityBase
+	public class Product : EntityBase, Iloggable
 	{
 		public Product()
 		{
@@ -35,7 +35,8 @@ namespace ACM.BL
 			}
 		}
 
-		
+		public string Log () =>
+			$" {ProductId}: {ProductName} Detail: {ProductDescription} Status: {EnityState.ToString()}";
 		public override string ToString() => ProductName;
 
 		public  override bool Validate()

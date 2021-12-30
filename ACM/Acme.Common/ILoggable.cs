@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Acme.Common
 {
-	public interface ILoggable
+	public interface Iloggable
 	{
 		string Log();
 	}
