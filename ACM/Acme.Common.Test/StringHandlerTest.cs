@@ -27,7 +27,7 @@ namespace Acme.Common.Test
 			// Arrange
 			var source = "SonicScrewdriver";
 			var expected = "Sonic Screwdriver";
-			
+			// a
 
 			// Act
 			var actual = source.InsertSpaces();
